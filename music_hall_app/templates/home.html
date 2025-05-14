@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="{% static 'img/senac_branco.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'style/meu_booststrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style/home.css' %}">
+    <title>Music Hall</title>
+</head>
+
+<body>
+    <div class="wrapper_container">
+        <header class="container_header">
+            <a href="{% url "home" %}"><figure class="logo_senac"><img src="{% static 'img/senac_branco.svg' %}" alt="logo_senac"></figure></a>
+
+            <nav class="container_menu">
+                <ul class="list_menu">
+                    <li><a href="{% url "building_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/building.svg' %}" alt="icons_building" class="icons">Setores</a></li>
+                    <li><a href="{% url "events_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/guitar.svg' %}" alt="icons_guitar" class="icons">Eventos</a></li>
+                    <li><a href="{% url "user_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user.svg' %}" alt="icons_user" class="icons">Usuários</a></li>
+                    <li><a href="{% url "profile" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user-alt.svg' %}" alt="icons_user" class="icons">perfil</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="containar_hall">
+            <h1 class="title color_branco size-60">HALL SENAC</h1>
+            <figure><img src="{% static 'icons/arrow.svg' %}" class="icon_arrow" alt="icon arrow"></figure>
+        </div>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</body>
+
+</html>

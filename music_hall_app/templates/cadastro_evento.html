@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="{% static 'img/senac_branco.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'style/meu_booststrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style/user.css' %}">
+    <link rel="stylesheet" href="{% static 'style/evento.css' %}">
+    <title>Evento cadastro</title>
+</head>
+<body>
+    <header class="container_header">
+        <a href="{% url "home" %}"><figure class="logo_senac"><img src="{% static 'img/senac_branco.svg' %}" alt="logo_senac"></figure></a>
+
+        <nav class="container_menu">
+            <ul class="list_menu">
+                <li><a href="{% url "building_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/building.svg' %}" alt="icons_building" class="icons">Setores</a></li>
+                <li><a href="{% url "events_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/guitar.svg' %}" alt="icons_guitar" class="icons">Eventos</a></li>
+                <li><a href="{% url "user_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user.svg' %}" alt="icons_user" class="icons">Usuários</a></li>
+                <li><a href="{% url "profile" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user-alt.svg' %}" alt="icons_user" class="icons">perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="title color_branco">Cadastro Evento</h1>
+        <form action="#" class="form_container">
+            <input type="text" name="user" id="user" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Nome Evento">
+
+            <input type="date" name="data_evento" id="data_evento" class="input_style bg_cinza_escuro color_cinza_medio size-24">
+            <input type="number" name="cpt_evento" id="cpt_evento" class="input_style bg_cinza_escuro color_cinza_medio size-24" placeholder="Capacidade do Evento">
+            <input type="file" name="cpt_evento" id="cpt_evento" class="file_style bg_cinza_escuro color_cinza_medio" placeholder="Capacidade do Evento">
+
+            <div class="container_file">
+                <label for="input_img" class="size-24 color_cinza_medio" id="label_img">Imagem</label>
+                <input type="file" name="input_img" id="input_img">
+            </div>
+
+            <button type="button" class="btn bg_cinza_claro color_branco subtitle">Cadastrar</button>
+        </form>
+    </main>
+
+    <script src="./src/script/change_nameLabel.js"></script>
+</body>
+</html>

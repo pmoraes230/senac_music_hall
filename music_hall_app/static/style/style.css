@@ -1,0 +1,39 @@
+.link {
+    text-decoration: none;
+}
+
+.container_login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px auto;
+    max-width: 808px;
+    gap: 64px;
+}
+
+.header_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+
+.form_login {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 77px;
+    max-width: 279px;
+}
+
+.container_img img {
+    height: 56.8rem;
+    width: 56rem;
+}

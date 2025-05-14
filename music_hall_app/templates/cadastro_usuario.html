@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="{% static 'img/senac_branco.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'style/meu_booststrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style/user.css' %}">
+    <title>Music Hall - Cadastro Usuário</title>
+</head>
+<body>
+    <header class="container_header">
+        <a href="{% url "home" %}"><figure class="logo_senac"><img src="{% static 'img/senac_branco.svg' %}" alt="logo_senac"></figure></a>
+
+        <nav class="container_menu">
+            <ul class="list_menu">
+                <li><a href="{% url "building_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/building.svg' %}" alt="icons_building" class="icons">Setores</a></li>
+                <li><a href="{% url "events_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/guitar.svg' %}" alt="icons_guitar" class="icons">Eventos</a></li>
+                <li><a href="{% url "user_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user.svg' %}" alt="icons_user" class="icons">Usuários</a></li>
+                <li><a href="{% url "profile" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user-alt.svg' %}" alt="icons_user" class="icons">perfil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1 class="title color_branco">Cadastro Usuário</h1>
+        <form action="#" class="form_container">
+            <input type="text" name="user" id="user" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Usuário">
+
+            <select name="perfil_select" id="perfil_select" class="select_style bg_cinza_escuro color_cinza_medio size-24">
+                <option value="teste" disabled selected>Escolha uma categoria</option>
+                <option value="teste">teste2</option>
+            </select>
+
+            <input type="email" name="email" id="email" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Email">
+            <input type="text" name="cpf" id="cpf" class="input_style bg_cinza_escuro color_branco size-24" placeholder="CPF">
+            <div class="container_password" >
+                <input type="password" name="password" id="password" placeholder="Senha" class="input_style bg_cinza_escuro color_branco subtitle">
+                <button type="button" class="icon_eye bg_cinza_escuro" id="togglePass"><img src="{% static 'icons/eye-closed.svg' %}" class="icon" alt="eyes-closed" id="eye"></button>
+            </div>
+            <div class="container_password" >
+                <input type="password" name="password" id="password_confirm" placeholder="Confirmar senha" class="input_style bg_cinza_escuro color_branco subtitle">
+                <button type="button" class="icon_eye bg_cinza_escuro" id="togglePass_confirm"><img src="{% static 'icons/eye-closed.svg' %}" class="icon " alt="eyes-closed" id="eye_confirm"></button>
+            </div>
+
+            <button type="button" class="btn bg_cinza_claro color_branco subtitle">Cadastrar</button>
+        </form>
+    </main>
+
+    <script src="{% static 'script/see_password.js' %}"></script>
+</body>
+</html>

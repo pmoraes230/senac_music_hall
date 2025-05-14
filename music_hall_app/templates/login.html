@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+        integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="{% static 'img/senac_branco.svg' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'style/meu_booststrap.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <title>Music Hall</title>
+</head>
+
+<body>
+    <main class="container_login">
+        <section class="container_form">
+            <div class="header_login">
+                <figure class="logo_senac"><img src="{% static 'img/senac_branco.svg' %}" alt="logo_senac_branco"></figure>
+                <h1 class="title color_branco">Login</h1>
+            </div>
+
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <form method="POST" class="form_login">
+                {% csrf_token %}
+                <input type="text" name="user" id="user" placeholder="Usuário" class="input_style bg_escuro color_branco subtitle">
+                <div class="container_password" >
+                    <input type="password" name="password" id="password" placeholder="Senha" class="input_style bg_escuro color_branco subtitle">
+                    <button type="button" class="icon_eye bg_escuro" id="togglePass"><img src="{% static 'icons/eye-closed.svg' %}" class="icon " alt="eyes-closed" id="eye"></button>
+                </div>
+                <button type="submit" class="btn_cinza_escuro bg_cinza_escuro color_branco link">Entrar</button>
+                {% if error %}
+                    <p>{{ error }}</p>
+                {% endif %}
+            </form>
+        </section>
+
+        <section class="container_img">
+            <figure class="figure_login"><img src="{% static 'img/img_login.png' %}" alt="figure_party"></figure>
+        </section>
+    </main>
+
+    <script src="{% static 'script/see_password.js' %}"></script>
+</body>
+</html>

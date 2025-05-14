@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100..800&display=swap');
+
+:root {
+    --branco: #F2F2F2;
+    --cinza_claro: #A6A6A6;
+    --cinza_medio: #595959;
+    --cinza_escuro: #262626;
+    --escuro: #0D0D0D;
+}
+
+body {
+    font-family: "Anek Tamil", sans-serif;
+    background-color: var(--escuro);
+    overflow-y: hidden;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.bg_branco {
+    background-color: var(--branco);
+}
+
+.bg_cinza_claro {
+    background-color: var(--cinza_claro);
+}
+
+.bg_cinza_medio {
+    background-color: var(--cinza_medio);
+}
+
+.bg_cinza_escuro {
+    background-color: var(--cinza_escuro);
+}
+
+.bg_escuro {
+    background-color: var(--escuro);
+}
+
+.color_branco{
+    color: var(--branco);
+}
+
+.color_cinza_claro {
+    color: var(--cinza_claro);
+}
+
+.color_cinza_medio {
+    color: var(--cinza_medio);
+}
+
+.color_cinza_escuro {
+    color: var(--cinza_escuro);
+}
+
+.color_escuro {
+    color: var(--escuro);
+}
+
+.title {
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.subtitle {
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.btn_cinza_escuro {
+    padding: 10px 25px;
+    font-size: 20px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn_cinza_escuro:hover {
+    background-color: var(--branco);
+    color: var(--cinza_escuro);
+}
+
+.container_header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: static;
+    padding: 1rem 0;
+}
+
+.list_menu {
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    padding-left: 3rem;
+    text-decoration: none;
+}
+
+.icons {
+    padding-right: 10px;
+}
+
+.input_style {
+    width: 146%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    max-width: 400px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.input_style_textarea {
+    width: 146%;
+    height: 8rem;
+    border-top: 0;
+    border-left: 0;
+    max-width: 400px;
+    resize: none;
+} 
+
+.input_style_textarea:focus {
+    outline: none;
+}
+
+
+.select_style {
+    width: 146%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    appearance: none;
+    background-image: url(../icons/arrow_select.svg);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: right 0.7rem top 50%;
+    padding: 0 4px;
+    max-width: 400px;
+}
+
+select:focus {
+    outline: none;
+}
+
+.size-60 {
+    font-size: 60px;
+}
+
+.size-24 {
+    font-size: 24px;
+}
+
+.container_password {
+    display: flex;
+    align-items: center;
+    width: 150%;
+    max-width: 400px;
+}
+.icon_eye {
+    border: none;
+    cursor: pointer
+}
+
+.icon {
+    width: 30px;
+    height: auto;
+}

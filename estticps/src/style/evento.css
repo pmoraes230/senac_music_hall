@@ -1,0 +1,9 @@
+.container_file {
+    width: 146%;
+    border: 2px solid var(--cinza_medio);
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    padding-bottom: 9px;
+    max-width: 400px;
+}
