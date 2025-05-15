@@ -31,19 +31,26 @@
 
     <main class="container">
         <h1 class="title color_branco">Cadastro Evento</h1>
-        <form action="#" class="form_container">
-            <input type="text" name="user" id="user" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Nome Evento">
+        <form method="POST" class="form_container">
+            {% csrf_token %}
+            <input type="text" name="name_event" id="name_event" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Nome Evento">
 
             <input type="date" name="data_evento" id="data_evento" class="input_style bg_cinza_escuro color_cinza_medio size-24">
             <input type="number" name="cpt_evento" id="cpt_evento" class="input_style bg_cinza_escuro color_cinza_medio size-24" placeholder="Capacidade do Evento">
             <input type="file" name="cpt_evento" id="cpt_evento" class="file_style bg_cinza_escuro color_cinza_medio" placeholder="Capacidade do Evento">
+            <select name="select_sector" id="select_sector" class="select_style bg_cinza_escuro color_cinza_medio size-24">
+                <option value="teste" disabled selected>Escolha um setor</option>
+                {% for sectore in sectores %}
+                <option value="{{ sectore.id }}" class="color_branco">{{ sectore.nome }}</option>
+                {% endfor %}
+            </select>
 
             <div class="container_file">
                 <label for="input_img" class="size-24 color_cinza_medio" id="label_img">Imagem</label>
                 <input type="file" name="input_img" id="input_img">
             </div>
 
-            <button type="button" class="btn bg_cinza_claro color_branco subtitle">Cadastrar</button>
+            <button type="submit" class="btn bg_cinza_claro color_branco subtitle">Cadastrar</button>
         </form>
     </main>
 

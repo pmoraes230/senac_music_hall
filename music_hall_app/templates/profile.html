@@ -16,29 +16,36 @@
 </head>
 <body>
     <header class="container_header">
-        <header class="container_header">
-            <a href="{% url "home" %}"><figure class="logo_senac"><img src="{% static 'img/senac_branco.svg' %}" alt="logo_senac"></figure></a>
+        <a href="{% url "home" %}"><figure class="logo_senac"><img src="{% static 'img/senac_branco.svg' %}" alt="logo_senac"></figure></a>
 
-            <nav class="container_menu">
-                <ul class="list_menu">
-                    <li><a href="{% url "building_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/building.svg' %}" alt="icons_building" class="icons">Setores</a></li>
-                    <li><a href="{% url "events_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/guitar.svg' %}" alt="icons_guitar" class="icons">Eventos</a></li>
-                    <li><a href="{% url "user_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user.svg' %}" alt="icons_user" class="icons">Usuários</a></li>
-                    <li><a href="{% url "profile" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user-alt.svg' %}" alt="icons_user" class="icons">perfil</a></li>
-                </ul>
-            </nav>
-        </header>
+        <nav class="container_menu">
+            <ul class="list_menu">
+                <li><a href="{% url "building_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/building.svg' %}" alt="icons_building" class="icons">Setores</a></li>
+                <li><a href="{% url "events_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/guitar.svg' %}" alt="icons_guitar" class="icons">Eventos</a></li>
+                <li><a href="{% url "user_register" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user.svg' %}" alt="icons_user" class="icons">Usuários</a></li>
+                <li><a href="{% url "profile" %}" class="menu color_branco subtitle"><img src="{% static 'icons/user-alt.svg' %}" alt="icons_user" class="icons">perfil</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main class="container">
         <h1 class="title color_branco">Cadastro Perfil</h1>
-        <form action="#" class="form_container">
-            <input type="text" name="user" id="user" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Nome Categoria">
 
-            <textarea name="descricao" id="descricao" class="input_style_textarea bg_cinza_escuro color_branco" placeholder="Descrição" maxlength="250"></textarea>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }} color_branco"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        
+        <form method="POST" class="form_container">
+            {% csrf_token %}
+            <input type="text" name="name_profile" id="user" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Nome Categoria">
+            <textarea name="description" id="description" class="input_style_textarea bg_cinza_escuro color_branco" placeholder="Descrição" maxlength="250"></textarea>
 
-            <button type="button" class="btn bg_cinza_claro color_branco subtitle">Cadastrar</button>
+            <button type="submit" class="btn bg_cinza_claro color_branco subtitle">Cadastrar</button>
         </form>
     </main>
-
 </body>
 </html>

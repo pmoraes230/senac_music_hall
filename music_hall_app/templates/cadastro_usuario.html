@@ -30,29 +30,44 @@
 
     <main class="container">
         <h1 class="title color_branco">Cadastro Usuário</h1>
-        <form action="#" class="form_container">
+        
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }} color_branco"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        <form method="POST" class="form_container">
+            {% csrf_token %}
             <input type="text" name="user" id="user" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Usuário">
 
             <select name="perfil_select" id="perfil_select" class="select_style bg_cinza_escuro color_cinza_medio size-24">
                 <option value="teste" disabled selected>Escolha uma categoria</option>
-                <option value="teste">teste2</option>
+                {% for category in categorys %}
+                <option value="{{ category.id }}" class="color_branco">{{ category.nome }}</option>
+                {% endfor %}
             </select>
 
             <input type="email" name="email" id="email" class="input_style bg_cinza_escuro color_branco size-24" placeholder="Email">
             <input type="text" name="cpf" id="cpf" class="input_style bg_cinza_escuro color_branco size-24" placeholder="CPF">
+            <p class="subtitle color_branco" id="alert_cpf" style="display: none;"></p>
             <div class="container_password" >
                 <input type="password" name="password" id="password" placeholder="Senha" class="input_style bg_cinza_escuro color_branco subtitle">
                 <button type="button" class="icon_eye bg_cinza_escuro" id="togglePass"><img src="{% static 'icons/eye-closed.svg' %}" class="icon" alt="eyes-closed" id="eye"></button>
             </div>
             <div class="container_password" >
-                <input type="password" name="password" id="password_confirm" placeholder="Confirmar senha" class="input_style bg_cinza_escuro color_branco subtitle">
+                <input type="password" name="password_confirm" id="password_confirm" placeholder="Confirmar senha" class="input_style bg_cinza_escuro color_branco subtitle">
                 <button type="button" class="icon_eye bg_cinza_escuro" id="togglePass_confirm"><img src="{% static 'icons/eye-closed.svg' %}" class="icon " alt="eyes-closed" id="eye_confirm"></button>
             </div>
+            <p class="subtitle color_branco" id="alert_password"></p>
 
-            <button type="button" class="btn bg_cinza_claro color_branco subtitle">Cadastrar</button>
+            <button type="submit" class="btn subtitle" id="btn_confirm" disabled>Cadastrar</button>
         </form>
     </main>
 
     <script src="{% static 'script/see_password.js' %}"></script>
+    <script src="{% static 'script/validCpf.js' %}"></script>
 </body>
 </html>
